@@ -1,7 +1,7 @@
 name: Coverage
 on:
   repository_dispatch:
-    # types: [notify]
+    types: [dispatch-event]
 
 jobs:
   send_email:
@@ -9,6 +9,12 @@ jobs:
     steps:
     - name: Checkout code
       uses: actions/checkout@v2
+      with:
+        fetch-depth: 0
+
+      run: |
+        echo ${{ github.event.client_payload.github.actions }}
+        echo ${{ github.event.client_payload.github.actor }}
 
     - name: Publish message
       run: |
