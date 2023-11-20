@@ -12,6 +12,8 @@ jobs:
       with:
         fetch-depth: 0
 
+    - name: print all
+
       run: |
         echo ${{ github.event.client_payload.github.actions }}
         echo ${{ github.event.client_payload.github.actor }}
