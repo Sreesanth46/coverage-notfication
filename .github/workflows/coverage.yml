@@ -20,3 +20,18 @@ jobs:
     
     - run: cd notify && npm install
     - run: cd notify && npm test
+
+    - name: Copy coverage report  
+      run: cp notify/lcov-report $GITHUB_WORKSPACE
+
+    - name: Commit coverage report of ${{ github.event.client_payload.github.actor }}
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git add . 
+        git commit -m "Add coverage report"
+    
+    - name: Push changes
+      uses: ad-m/github-push-action@master
+      with: 
+        github_token: ${{ secrets.GITHUB_TOKEN }}
