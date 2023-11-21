@@ -22,7 +22,9 @@ jobs:
     - run: cd notify && npm test
 
     - name: Copy coverage report  
-      run: cp notify/lcov-report $GITHUB_WORKSPACE
+      run: |
+        ls notify/
+        cp notify/lcov-report $GITHUB_WORKSPACE
 
     - name: Commit coverage report of ${{ github.event.client_payload.github.actor }}
       run: |
