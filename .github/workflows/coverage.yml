@@ -24,7 +24,7 @@ jobs:
     - name: Copy coverage report  
       run: |
         ls notify/
-        cp notify/lcov-report $GITHUB_WORKSPACE
+        cp notify/coverage/lcov-report $GITHUB_WORKSPACE
 
     - name: Commit coverage report of ${{ github.event.client_payload.github.actor }}
       run: |
