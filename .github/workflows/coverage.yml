@@ -10,12 +10,13 @@ jobs:
     - name: print all
 
       run: |
-        echo ${{ github.event.client_payload.github.actions }}
+        echo ${{ github.event.client_payload.github }}
         echo ${{ github.event.client_payload.github.actor }}
 
-    - name: Publish message
-      run: |
-        curl -X POST \
-         -H "Content-Type: application/json" \  
-         -d '{"text": "notify"}' \
-         {{secrets.CHAT_HOOK}}
+    - uses: actions/checkout@v3
+      with: 
+        repository: Sreesanth-46/notify
+        path: notify
+    
+    - run: cd notify && npm install
+    - run: cd notify && npm test
