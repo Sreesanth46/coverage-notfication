@@ -26,7 +26,6 @@ jobs:
       run: |
         ls notify/
         cp notify/coverage/lcov-report $GITHUB_WORKSPACE -r
-        git status
 
     - name: Commit coverage report of ${{ github.event.client_payload.github.actor }}
       if: ${{ success() }}
