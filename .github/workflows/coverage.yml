@@ -27,7 +27,6 @@ jobs:
         cp notify/coverage/lcov-report $GITHUB_WORKSPACE -r
 
     - name: Commit coverage report of ${{ github.event.client_payload.github.actor }}
-    - name: Commit changes
       uses: EndBug/add-and-commit@v9
       with:
         add: "."
