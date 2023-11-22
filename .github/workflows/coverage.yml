@@ -44,12 +44,12 @@ jobs:
       run: |
         git status
         mkdir -p coverage-notfication/Sreesanth-46
-        # cp -rvT notify/coverage/lcov-report ./Sreesanth-46
+        cp -rvT notify/coverage/lcov-report ./Sreesanth-46
         git status
-        # git add -A
-        # git status
-        # git commit -m "chore: coverage"
-        # git push
+        git add -A
+        git status
+        git commit -m "chore: coverage"
+        git push
     
           
     
