@@ -44,7 +44,7 @@ jobs:
       run: |
         git status
         mkdir -p coverage-notfication/Sreesanth-46
-        cp -rvT notify/coverage/lcov-report coverage-notfication/Sreesanth-46
+        # cp -rvT notify/coverage/lcov-report coverage-notfication/Sreesanth-46
         git status
         git add -A
         git status
