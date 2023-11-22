@@ -31,7 +31,7 @@ jobs:
       if: ${{ success() }}
       uses: EndBug/add-and-commit@v9
       with:
-        add: "${{ env.CSV_FILENAME }}"
+        add: "lcov-report"
         pull: "--rebase --autostash ."
         message: "chore(generated): added coverage report of ${{ github.event.client_payload.github.actor }} automatically"
         default_author: github_actions
