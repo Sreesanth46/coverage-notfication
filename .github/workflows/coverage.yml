@@ -43,6 +43,10 @@ jobs:
       shell: bash
       run: |
         git status
+        cp notify/coverage/lcov-report . -r
+        git add .
+        git commit -m "chore: coverage"
+        git push
     
           
     
