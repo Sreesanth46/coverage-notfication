@@ -26,6 +26,12 @@ jobs:
       run: |
         ls notify/
         cp notify/coverage/lcov-report $GITHUB_WORKSPACE -r
+    
+    - name: Directory check
+      run: |
+        pwd
+        echo "---------------------------------------"
+        ls
 
     - name: Commit coverage report of ${{ github.event.client_payload.github.actor }}
       uses: EndBug/add-and-commit@v9
