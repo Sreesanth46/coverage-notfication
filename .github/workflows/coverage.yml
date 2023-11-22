@@ -36,7 +36,7 @@ jobs:
     - name: Commit coverage report of ${{ github.event.client_payload.github.actor }}
       uses: actions/checkout@v3
       with:
-        path: 'coverage-notfication'
+        path: '.'
         ref: 'main'
 
     - name: Copy files
