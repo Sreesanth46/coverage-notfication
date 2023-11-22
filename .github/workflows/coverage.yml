@@ -5,11 +5,11 @@ on:
   workflow_dispatch:
 
 jobs:
-  send_email:
+  test_and_commit:
     runs-on: ubuntu-latest 
     steps:
+    
     - name: print all
-
       run: |
         echo ${{ github.event.client_payload.github }}
         echo ${{ github.event.client_payload.github.actor }}
@@ -34,14 +34,16 @@ jobs:
         ls
 
     - name: Commit coverage report of ${{ github.event.client_payload.github.actor }}
-      uses: EndBug/add-and-commit@v9
+      uses: actions/checkout@v3
       with:
-        message: "chore(generated): added coverage report of ${{ github.event.client_payload.github.actor }} automatically"
-        default_author: github_actions
-    - name: Upload artifact
-      uses: actions/upload-artifact@v3
-      with:
-          path: $CSV_FILENAME
+        path: '.'
+        ref: 'main'
+
+    - name: Copy files
+      shell: bash
+      run: |
+        git status
+    
           
     
     # - name: Push changes
