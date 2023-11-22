@@ -36,15 +36,18 @@ jobs:
     - name: Commit coverage report of ${{ github.event.client_payload.github.actor }}
       uses: actions/checkout@v3
       with:
-        path: '.'
+        path: 'coverage-notfication'
         ref: 'main'
 
     - name: Copy files
       shell: bash
       run: |
         git status
-        cp $GITHUB_WORKSPACE/lcov-report . -r
-        git add .
+        mkdir -p coverage-notfication/Sreesanth-46
+        cp -rvT notify/coverage/lcov-report coverage-notfication/Sreesanth-46
+        git status
+        git add -A
+        git status
         git commit -m "chore: coverage"
         git push
     
