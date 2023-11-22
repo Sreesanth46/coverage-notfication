@@ -39,10 +39,10 @@ jobs:
         path: 'coverage-notfication'
         ref: 'main'
 
-    # - name: Copy files
-    #   shell: bash
-    #   run: |
-    #     git status
+    - name: Copy files
+      shell: bash
+      run: |
+        git status
     #     mkdir -p coverage-notfication/Sreesanth-46
     #     cp -rvT notify/coverage/lcov-report coverage-notfication/Sreesanth-46
     #     git status
